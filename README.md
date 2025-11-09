@@ -22,7 +22,7 @@ DEBUG=true
 
 ## Architekturübersicht
 
-Nachfolgend findest du eine visuelle Übersicht der Architektur dieses User-Services. Die Diagramme sind in Mermaid geschrieben und werden auf GitHub automatisch gerendert.
+
 
 ### Komponenten-/Datenflussdiagramm
 ```mermaid
