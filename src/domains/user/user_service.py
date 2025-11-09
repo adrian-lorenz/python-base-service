@@ -20,7 +20,7 @@ class UserService:
         return UserResponse.model_validate(user)
 
     def create_user(self, user_data: UserCreate) -> UserResponse:
-        # Prüfen, ob E-Mail oder Benutzername bereits existieren
+        # dummy check
         if self.repository.get_user_by_email(user_data.email):
             raise ValueError(f"User with email {user_data.email} already exists")
 
