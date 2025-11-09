@@ -1,0 +1,68 @@
+# Performance-Tests
+@baseUrl = http://localhost:8000
+@apiUrl = {{baseUrl}}/api
+
+### Mehrere Benutzer erstellen
+# Benutzer 1
+# @name createUser1
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "perf_user1",
+  "email": "perf1@example.com",
+  "password": "password123",
+  "first_name": "Performance",
+  "last_name": "One"
+}
+
+### Benutzer 2
+# @name createUser2
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "perf_user2",
+  "email": "perf2@example.com",
+  "password": "password123",
+  "first_name": "Performance",
+  "last_name": "Two"
+}
+
+### Benutzer 3
+# @name createUser3
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "perf_user3",
+  "email": "perf3@example.com",
+  "password": "password123",
+  "first_name": "Performance",
+  "last_name": "Three"
+}
+
+### Alle Benutzer abrufen (mit Paginierung)
+GET {{apiUrl}}/users?skip=0&limit=10
+Accept: application/json
+
+### Benutzer einzeln abrufen
+GET {{apiUrl}}/users/{{createUser1.response.body.id}}
+Accept: application/json
+
+###
+GET {{apiUrl}}/users/{{createUser2.response.body.id}}
+Accept: application/json
+
+###
+GET {{apiUrl}}/users/{{createUser3.response.body.id}}
+Accept: application/json
+
+### Aufräumen: Alle erstellten Benutzer löschen
+DELETE {{apiUrl}}/users/{{createUser1.response.body.id}}
+
+###
+DELETE {{apiUrl}}/users/{{createUser2.response.body.id}}
+
+###
+DELETE {{apiUrl}}/users/{{createUser3.response.body.id}}

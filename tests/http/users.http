@@ -1,0 +1,42 @@
+# User API Tests
+@baseUrl = http://localhost:8000
+@apiUrl = {{baseUrl}}/api
+
+### Root-Endpunkt aufrufen
+GET {{baseUrl}}
+Accept: application/json
+
+### Alle Benutzer abrufen
+GET {{apiUrl}}/users
+Accept: application/json
+
+### Einen bestimmten Benutzer abrufen
+# Ändere die ID nach dem Erstellen eines Benutzers
+GET {{apiUrl}}/users/1
+Accept: application/json
+
+### Einen neuen Benutzer erstellen
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "securepassword",
+  "first_name": "Test",
+  "last_name": "User"
+}
+
+### Benutzer aktualisieren
+# Ändere die ID nach dem Erstellen eines Benutzers
+PUT {{apiUrl}}/users/1
+Content-Type: application/json
+
+{
+  "first_name": "Updated",
+  "last_name": "User"
+}
+
+### Benutzer löschen
+# Ändere die ID nach dem Erstellen eines Benutzers
+DELETE {{apiUrl}}/users/1

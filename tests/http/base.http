@@ -1,0 +1,9 @@
+### Variablen und Umgebungen
+
+@baseUrl = http://localhost:8000
+@apiUrl = {{baseUrl}}/api
+
+###
+# Hilfreicher Tipp:
+# In IntelliJ IDEA oder VS Code (mit REST Client) kannst du diese Datei
+# als Basis für andere .http Dateien verwenden und von dort aus Anfragen senden

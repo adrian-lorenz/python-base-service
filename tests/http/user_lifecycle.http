@@ -1,0 +1,48 @@
+# Vollständiger User-Lebenszyklus Test
+@baseUrl = http://localhost:8000
+@apiUrl = {{baseUrl}}/api
+
+### 1. Erstellen eines neuen Benutzers
+# @name createUser
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "lifecycle",
+  "email": "lifecycle@example.com",
+  "password": "password123",
+  "first_name": "Life",
+  "last_name": "Cycle"
+}
+
+### 2. ID des erstellten Benutzers speichern
+@userId = {{createUser.response.body.id}}
+
+### 3. Überprüfen, ob der Benutzer erstellt wurde
+GET {{apiUrl}}/users/{{userId}}
+Accept: application/json
+
+### 4. Alle Benutzer abrufen und prüfen, ob unser Benutzer dabei ist
+GET {{apiUrl}}/users
+Accept: application/json
+
+### 5. Benutzer aktualisieren
+# @name updateUser
+PUT {{apiUrl}}/users/{{userId}}
+Content-Type: application/json
+
+{
+  "first_name": "Updated",
+  "last_name": "Lifecycle"
+}
+
+### 6. Überprüfen, ob der Benutzer aktualisiert wurde
+GET {{apiUrl}}/users/{{userId}}
+Accept: application/json
+
+### 7. Benutzer löschen
+DELETE {{apiUrl}}/users/{{userId}}
+
+### 8. Überprüfen, ob der Benutzer wirklich gelöscht wurde (sollte 404 zurückgeben)
+GET {{apiUrl}}/users/{{userId}}
+Accept: application/json

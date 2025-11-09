@@ -1,0 +1,49 @@
+# Fehlerszenarien Tests
+@baseUrl = http://localhost:8000
+@apiUrl = {{baseUrl}}/api
+
+### Nichtexistierenden Benutzer abrufen
+GET {{apiUrl}}/users/999
+Accept: application/json
+
+### Benutzer mit doppelter E-Mail erstellen
+# Sende diesen Request zweimal, um einen Duplikat-Fehler zu erzeugen
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "duplicatemail",
+  "email": "duplicate@example.com",
+  "password": "password123"
+}
+
+### Benutzer mit doppeltem Benutzernamen erstellen
+# Sende diesen Request zweimal, um einen Duplikat-Fehler zu erzeugen
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "duplicateusername",
+  "email": "unique1@example.com",
+  "password": "password123"
+}
+
+### Benutzer mit ungültigen Daten erstellen (fehlendes Pflichtfeld)
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "missing@username.com",
+  "password": "password123"
+}
+
+### Nichtexistierenden Benutzer aktualisieren
+PUT {{apiUrl}}/users/999
+Content-Type: application/json
+
+{
+  "first_name": "Nonexistent"
+}
+
+### Nichtexistierenden Benutzer löschen
+DELETE {{apiUrl}}/users/999

@@ -1,0 +1,120 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtuelle Umgebung
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Unit Tests / Coverage Reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+.pytest_reports/
+coverage/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Datenbanken
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE-spezifische Dateien
+# PyCharm / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+
+# VSCode
+.vscode/
+*.code-workspace
+.history/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Projektspezifisches
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Temporäre Dateien
+tmp/
+temp/
+
+# Generierte Dateien
+generated/
+
+# HTTP-Test-Response Dateien
+*.http.*.txt
+http-client.private.env.json
+
+# Sicherheitsrelevante Dateien
+*.pem
+*.key
+*.pub
+
+# MyPy Cache
+.mypy_cache/
+
+# Dependency-Lock-Dateien (behalte requirements.txt)
+# poetry.lock
+# Pipfile.lock
+
+# Lokale Konfigurationsdateien
+config.local.yaml
+config.local.yml
