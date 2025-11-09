@@ -13,24 +13,27 @@ router = APIRouter(
     responses={404: {"description": "Not found"}},
 )
 
+
 # Dependency für User-Service
 def get_user_service(db: Session = Depends(get_db)):
     return UserService(db)
 
+
 @router.get("/", response_model=List[UserResponse])
 def read_users(
-    skip: int = 0, 
-    limit: int = 100,
-    service: UserService = Depends(get_user_service)
+        skip: int = 0,
+        limit: int = 100,
+        service: UserService = Depends(get_user_service)
 ):
     """Alle User abrufen"""
     users = service.get_users(skip, limit)
     return users
 
+
 @router.get("/{user_id}", response_model=UserResponse)
 def read_user(
-    user_id: int, 
-    service: UserService = Depends(get_user_service)
+        user_id: int,
+        service: UserService = Depends(get_user_service)
 ):
     """Einen User anhand seiner ID abrufen"""
     user = service.get_user_by_id(user_id)
@@ -41,10 +44,11 @@ def read_user(
         )
     return user
 
+
 @router.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def create_user(
-    user_data: UserCreate, 
-    service: UserService = Depends(get_user_service)
+        user_data: UserCreate,
+        service: UserService = Depends(get_user_service)
 ):
     """Neuen User erstellen"""
     try:
@@ -55,11 +59,12 @@ def create_user(
             detail=str(e)
         )
 
+
 @router.put("/{user_id}", response_model=UserResponse)
 def update_user(
-    user_id: int, 
-    user_data: UserUpdate, 
-    service: UserService = Depends(get_user_service)
+        user_id: int,
+        user_data: UserUpdate,
+        service: UserService = Depends(get_user_service)
 ):
     """User aktualisieren"""
     try:
@@ -76,10 +81,11 @@ def update_user(
             detail=str(e)
         )
 
+
 @router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_user(
-    user_id: int, 
-    service: UserService = Depends(get_user_service)
+        user_id: int,
+        service: UserService = Depends(get_user_service)
 ):
     """User löschen"""
     result = service.delete_user(user_id)
@@ -89,6 +95,7 @@ def delete_user(
             detail=f"User with ID {user_id} not found"
         )
     return None
+
 
 # Export des Routers
 UsersController = router

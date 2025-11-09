@@ -22,13 +22,3 @@ um die API-Endpunkte manuell zu testen.
 JetBrains HTTP-Client kann Variablen zwischen Anfragen teilen und
 unterstützt automatische Extraktion von Daten aus vorherigen Antworten.
 
-### In Visual Studio Code
-
-1. Installiere die "REST Client" Erweiterung (von Huachao Mao)
-2. Öffne eine der .http-Dateien
-3. Klicke auf "Send Request" über einer Anfrage, um sie auszuführen
-4. Die Antwort wird in einem neuen Tab angezeigt
-
-### In anderen Umgebungen
-
-Du kannst die Anfragen aus den .http-Dateien auch in andere HTTP-Clients wie Postman oder Insomnia kopieren.
