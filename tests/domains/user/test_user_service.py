@@ -1,6 +1,6 @@
 import pytest
 
-from src.domains.user.models.user_schema import UserCreate, UserUpdate
+from src.services.user.models.user_schema import UserCreate, UserUpdate
 
 
 class TestUserService:

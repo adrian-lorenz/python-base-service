@@ -3,10 +3,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
-from src.app.database import Base
-from src.domains.user.models.user_model import User
-from src.domains.user.repository.user_repository import UserRepository
-from src.domains.user.user_service import UserService
+from src.backend.database import Base
+from src.services.user.models.user_model import User
+from src.services.user.repository.user_repository import UserRepository
+from src.services.user.user_service import UserService
 
 
 # In-Memory SQLite-Datenbank für Tests
@@ -51,7 +51,7 @@ def user_service(test_db_session):
 @pytest.fixture
 def sample_user(user_repository):
     """Erstellt einen Beispiel-Benutzer für Tests"""
-    from src.domains.user.models.user_schema import UserCreate
+    from src.services.user.models.user_schema import UserCreate
 
     user_data = UserCreate(
         username="testuser",

@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.app.logger import logger
-from src.domains.user.api.users_contoller import UsersController
-from src.app.database import Base, engine
+from src.backend.logger import logger
+from src.services.user.controller.users_contoller import UsersController
+from src.backend.database import Base, engine
 
 # Datenbanktabellen erstellen
 Base.metadata.create_all(bind=engine)
@@ -27,7 +27,7 @@ app.add_middleware(
 logger.info("CORS-Middleware wurde konfiguriert")
 
 # Router einbinden
-app.include_router(UsersController, prefix="/api")
+app.include_router(UsersController, prefix="/controller")
 logger.info("Router wurde eingebunden")
 
 

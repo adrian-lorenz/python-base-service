@@ -2,9 +2,9 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from src.app.database import get_db
-from src.domains.user.user_service import UserService
-from src.domains.user.models.user_schema import UserCreate, UserUpdate, UserResponse
+from src.backend.database import get_db
+from src.services.user.user_service import UserService
+from src.services.user.models.user_schema import UserCreate, UserUpdate, UserResponse
 
 # Router für User-Endpunkte erstellen
 router = APIRouter(

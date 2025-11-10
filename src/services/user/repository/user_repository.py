@@ -1,8 +1,8 @@
 from typing import Optional
 from sqlalchemy.orm import Session
 
-from src.domains.user.models.user_model import User
-from src.domains.user.models.user_schema import UserCreate, UserUpdate
+from src.services.user.models.user_model import User
+from src.services.user.models.user_schema import UserCreate, UserUpdate
 
 
 class UserRepository:

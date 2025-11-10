@@ -2,7 +2,7 @@ import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from src.domains.user.api.users_contoller import router, get_user_service
+from src.services.user.controller.users_contoller import router, get_user_service
 
 
 # Test-App erstellen
@@ -13,7 +13,7 @@ def app(test_db_session):
 
     # Override der Dependency für den User-Service
     def override_get_user_service():
-        from src.domains.user.user_service import UserService
+        from src.services.user.user_service import UserService
         return UserService(test_db_session)
 
     app.include_router(router)
@@ -33,7 +33,7 @@ def sample_api_user(client):
     """Erstellt einen Beispiel-Benutzer über die API"""
     user_data = {
         "username": "apiuser",
-        "email": "api@example.com",
+        "email": "controller@example.com",
         "password": "password123",
         "first_name": "API",
         "last_name": "User"

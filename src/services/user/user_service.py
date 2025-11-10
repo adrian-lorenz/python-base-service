@@ -1,8 +1,8 @@
 from typing import List, Optional
 from sqlalchemy.orm import Session
 
-from src.domains.user.repository.user_repository import UserRepository
-from src.domains.user.models.user_schema import UserCreate, UserUpdate, UserResponse
+from src.services.user.repository.user_repository import UserRepository
+from src.services.user.models.user_schema import UserCreate, UserUpdate, UserResponse
 
 
 class UserService:
